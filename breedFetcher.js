@@ -23,14 +23,15 @@ const fetchBreedDescription = function (breedName, callback) {
 
       //If breedname is invalid or cannot by found by API
       if (newBody[0] === undefined) {
-        console.log(
-          `${input} cannot be found 😿😿😿! Please try a different breed name purrrrrr meowww`
+        callback(
+          `${breedName} cannot be found 😿😿😿! Please try a different breed name purrrrrr meowww`
         );
       }
 
       if (newBody[0]) {
         //Print description, the whole object is index 0 of array newBody
-        console.log(newBody[0].description);
+        callback(null, newBody[0].description);
+        return;
       }
     }
   );
